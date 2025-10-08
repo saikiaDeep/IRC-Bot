@@ -1,14 +1,14 @@
+
 /.venv/
-/Pdfs/
+
+__pycache__
+*.pyc
+
 test.py
 test2.py
-__pycache__/
-*.pyc
-# Ignore everything in .chainlit
-/chainlit/.chainlit/*
-
-# But keep only the config
-!/chainlit/.chainlit/config.toml
-
-/chainlit/__pycache__
 chainlit.md
+
+/Pdfs/
+
+
+/chainlit/.chainlit/
