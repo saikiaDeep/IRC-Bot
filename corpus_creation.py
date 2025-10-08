@@ -5,7 +5,7 @@ import vertexai
 
 PROJECT_ID = "ircbot-474408"  
 LOCATION = "us-east4"         
-DISPLAY_NAME = "test_corpus"  
+DISPLAY_NAME = "ircbot_corpus"  
 
 FILE_PATHS = [
     "https://drive.google.com/file/d/1mKmwe3SMYiifcTAkoluoVBjcsGlpwLCO",

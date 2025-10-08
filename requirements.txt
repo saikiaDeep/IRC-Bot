@@ -1,3 +1,6 @@
 fastapi
 chainlit
 uvicorn
+google-cloud-aiplatform
+gcloud
+vertexai

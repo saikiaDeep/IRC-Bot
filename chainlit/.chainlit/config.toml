@@ -6,7 +6,7 @@ user_env = []
 session_timeout = 3600
 
 # Duration (in seconds) of the user session expiry
-user_session_timeout = 1296000  # 15 days
+user_session_timeout = 1296000 # 15 days
 
 # Enable third parties caching (e.g., LangChain cache)
 cache = false
@@ -86,7 +86,12 @@ reaction_on_message_received = false
 
 [UI]
 # Name of the assistant.
-name = "Assistant"
+name = "IRC-bot"
+
+# --- MODIFICATION START ---
+# Load assistant logo from a file in the public directory (assuming the file is /public/nhai-logo.png)
+logo_file = "/nhai-logo.png"
+# --- MODIFICATION END ---
 
 # default_theme = "dark"
 
@@ -118,7 +123,7 @@ alert_style = "classic"
 # custom_js_attributes = "async type = \"module\""
 
 # Custom login page image, relative to public directory or external URL
-# login_page_image = "/public/custom-background.jpg"
+login_page_image = "/public/nhai-logo.png"
 
 # Custom login page image filter (Tailwind internal filters, no dark/light variants)
 # login_page_image_filter = "brightness-50 grayscale"
@@ -143,11 +148,11 @@ default_avatar_file_url = ""
 
 # Specify optional one or more custom links in the header.
 # [[UI.header_links]]
-#     name = "Issues"
-#     display_name = "Report Issue"
-#     icon_url = "https://avatars.githubusercontent.com/u/128686189?s=200&v=4"
-#     url = "https://github.com/Chainlit/chainlit/issues"
-#     target = "_blank" (default)  # Optional: "_self", "_parent", "_top".
+#       name = "Issues"
+#       display_name = "Report Issue"
+#       icon_url = "https://avatars.githubusercontent.com/u/128686189?s=200&v=4"
+#       url = "https://github.com/Chainlit/chainlit/issues"
+#       target = "_blank" (default)  # Optional: "_self", "_parent", "_top".
 
 [meta]
 generated_by = "2.8.3"

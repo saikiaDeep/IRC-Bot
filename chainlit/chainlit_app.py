@@ -1,7 +1,7 @@
 import chainlit as cl
 import httpx
 
-BACKEND_URL = "http://localhost:8000/chat"
+BACKEND_URL = "http://localhost:8001/chat"
 
 @cl.on_message
 async def main(message: cl.Message):

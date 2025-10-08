@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-#from rag_service import query_rag
+from rag_service import query_rag
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -23,5 +23,5 @@ def root():
 
 @app.post("/chat")
 def chat(request: ChatRequest):
-    response_text = "query_rag(request.message)"
+    response_text = query_rag(request.message)
     return {"response": response_text}
