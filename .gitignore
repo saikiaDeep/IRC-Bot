@@ -10,3 +10,5 @@ test2.py
 
 /chainlit/__pycache__
 chainlit.md
+
+/__pycache__/
