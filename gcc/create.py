@@ -8,14 +8,13 @@ LOCATION = "us-east4"
 DISPLAY_NAME = "ircbot_corpus"  
 
 FILE_PATHS = [
-    "https://drive.google.com/file/d/1mKmwe3SMYiifcTAkoluoVBjcsGlpwLCO",
-    "https://drive.google.com/file/d/1KY18fdKUw8lIXqesDgbFIQ4JULFwOV56",
-    "https://drive.google.com/file/d/1wW_ENKZWikwjfCVbVKg-jBqbRKpEGI0m",
-    "https://drive.google.com/file/d/158RvJJDjFxM4rqvYfvP2oGcqRtnKe0Tl",
-    "https://drive.google.com/file/d/1SnKzxv3yjxIIm6KXotxu2Q6cBHOlFU98",
-    "https://drive.google.com/file/d/12TvPdhOK8c2Z1kGF-nlQtPsaydtUCjMk"
+    "gs://irc-documents-store/IRC - 5 - 2024.pdf",
+    "gs://irc-documents-store/IRC 78 Part-1-2024.pdf",
+    "gs://irc-documents-store/IRC-112-2020.pdf",
+    "gs://irc-documents-store/irc.gov.in.sp.073.2018.pdf",
+    "gs://irc-documents-store/irc.gov.in.sp.084.2019.pdf",
+    "gs://irc-documents-store/irc.gov.in.sp.087.2019.pdf"
 ]
-
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 embedding_model_config = rag.RagEmbeddingModelConfig(
