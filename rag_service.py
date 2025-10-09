@@ -1,6 +1,6 @@
 from google.cloud import aiplatform
 from vertexai import rag
-from vertexai.generative_models import GenerativeModel, Tool, SystemInstruction # Import SystemInstruction
+from vertexai.generative_models import GenerativeModel, Tool
 import vertexai
 
 PROJECT_ID = "ircbot-474408"
@@ -54,7 +54,7 @@ def init_rag_pipeline():
     model = GenerativeModel(
         model_name="gemini-2.0-flash-001",
         tools=[retrieval_tool],
-        system_instruction=SystemInstruction(DEFAULT_SYSTEM_PROMPT)
+        system_instruction=DEFAULT_SYSTEM_PROMPT
     )
     return model
 
@@ -64,4 +64,3 @@ rag_model = init_rag_pipeline()
 def query_rag(prompt: str) -> str:
     response = rag_model.generate_content(prompt)
     return response.text
-
