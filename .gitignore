@@ -6,9 +6,11 @@ __pycache__
 
 test.py
 test2.py
-chainlit.md
 
 /Pdfs/
 
+# Ignore everything in .chainlit
+.chainlit/*
 
-/chainlit/.chainlit/
+# But keep only the config
+!.chainlit/config.toml
