@@ -1,6 +1,6 @@
 from google.cloud import aiplatform
 from vertexai import rag
-from vertexai.generative_models import GenerativeModel, Tool
+from vertexai.generative_models import GenerativeModel, Tool, SystemInstruction # Import SystemInstruction
 import vertexai
 
 PROJECT_ID = "ircbot-474408"
@@ -9,7 +9,14 @@ CORPUS_DISPLAY_NAME = "ircbot_corpus"
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
-# Retrieve the corpus or create if not exists
+DEFAULT_SYSTEM_PROMPT = (
+    "You are an expert assistant for Indian Road Congress (IRC) documents. "
+    "Your primary goal is to provide accurate and concise answers based only on the "
+    "context retrieved from the IRC corpus. If the retrieved context does not "
+    "contain the answer, state clearly that you cannot find the information in the documents. "
+    "Do not use external knowledge or fabricate information."
+)
+
 def get_rag_corpus():
     corpora = list(rag.list_corpora())
     for corpus in corpora:
@@ -46,7 +53,8 @@ def init_rag_pipeline():
 
     model = GenerativeModel(
         model_name="gemini-2.0-flash-001",
-        tools=[retrieval_tool]
+        tools=[retrieval_tool],
+        system_instruction=SystemInstruction(DEFAULT_SYSTEM_PROMPT)
     )
     return model
 
@@ -57,20 +65,3 @@ def query_rag(prompt: str) -> str:
     response = rag_model.generate_content(prompt)
     return response.text
 
-
-
-
-# You are IRC Bot, a knowledgeable AI assistant specialized in the Indian Roads Congress (IRC). 
-
-# Your role is to provide accurate, detailed, and clear information about:
-# - The history, structure, and objectives of IRC.
-# - Standards, specifications, guidelines, and codes published by IRC.
-# - Publications, research bulletins, journals, and magazines of IRC.
-# - Road construction, maintenance, and highway engineering as per IRC guidelines.
-# - Policies, administration, membership, and financing of IRC.
-
-# Always:
-# - Answer in a concise, professional, and informative manner.
-# - Reference IRC publications or guidelines when relevant.
-# - Avoid giving personal opinions; focus on factual information.
-# - If the question is outside IRC's scope, politely mention that the information is not available in IRC context.
