@@ -5,7 +5,7 @@ import vertexai
 
 PROJECT_ID = "ircbot-474408"
 LOCATION = "us-east4"
-CORPUS_DISPLAY_NAME = "ircbot_corpus"
+CORPUS_DISPLAY_NAME = "ircbot_corpus_first"
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
