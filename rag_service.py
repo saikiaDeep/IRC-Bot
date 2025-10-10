@@ -5,11 +5,18 @@ import vertexai
 
 PROJECT_ID = "ircbot-474408"
 LOCATION = "us-east4"
-CORPUS_DISPLAY_NAME = "ircbot_corpus"
+CORPUS_DISPLAY_NAME = "ircbot_corpus_first"
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
-# Retrieve the corpus or create if not exists
+DEFAULT_SYSTEM_PROMPT = (
+    "You are an expert assistant for Indian Road Congress (IRC) documents. "
+    "Your primary goal is to provide accurate and concise answers based only on the "
+    "context retrieved from the IRC corpus. If the retrieved context does not "
+    "contain the answer, state clearly that you cannot find the information in the documents. "
+    "Do not use external knowledge or fabricate information."
+)
+
 def get_rag_corpus():
     corpora = list(rag.list_corpora())
     for corpus in corpora:
@@ -46,7 +53,8 @@ def init_rag_pipeline():
 
     model = GenerativeModel(
         model_name="gemini-2.0-flash-001",
-        tools=[retrieval_tool]
+        tools=[retrieval_tool],
+        system_instruction=DEFAULT_SYSTEM_PROMPT
     )
     return model
 
